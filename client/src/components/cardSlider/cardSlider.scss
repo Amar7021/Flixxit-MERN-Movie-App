@@ -1,0 +1,52 @@
+.cardSlider {
+  width: 100%;
+  margin-top: 10px;
+
+  .cardTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 50px;
+  }
+
+  .wrapper {
+    position: relative;
+    padding-bottom: 15px;
+    .slider-action {
+      z-index: 999;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      height: 50%;
+      transition: 0.3s ease-in-out;
+      margin: auto;
+      cursor: pointer;
+
+      & .sliderArrow {
+        font-size: 32px;
+      }
+    }
+
+    & .none {
+      display: none;
+    }
+
+    & .left {
+      left: 0;
+    }
+
+    & .right {
+      right: 0;
+    }
+
+    .slider {
+      margin-left: 50px;
+      display: flex;
+      margin-top: 10px;
+      width: max-content;
+      transform: translateX(0px);
+      transition: all 1s ease;
+    }
+  }
+}

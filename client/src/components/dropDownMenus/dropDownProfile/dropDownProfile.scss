@@ -1,0 +1,68 @@
+@import "../../../app.scss";
+
+.dropDownProfile {
+  display: none;
+  width: 200px;
+  height: 240px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  transform: translateY(20);
+  transition: 0.5s ease-in;
+
+  @include tablet {
+    display: flex;
+    width: 200px;
+    height: 240px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    position: absolute;
+    top: 65px;
+    transform: translateY(20);
+    transition: 0.5s ease-in;
+    margin-right: 10px;
+  }
+
+  @include mobile {
+    width: 185px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 150px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg) translate(-7.5%, -6%);
+    background-color: var(--main-color);
+  }
+
+  @include mobile {
+    margin-right: 0;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    margin-left: 20px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      cursor: pointer;
+      padding: 2px;
+
+      &:hover {
+        color: #8f8f8f;
+        text-decoration: underline;
+      }
+    }
+  }
+}

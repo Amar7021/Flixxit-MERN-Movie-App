@@ -1,0 +1,227 @@
+@import "../../app.scss";
+
+.register {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to top left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/54a0de92-feb4-4891-8cb3-00a794ec89f6/IN-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg")
+      no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .top {
+    .wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+
+    .loginButton {
+      background-color: #d60101;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 6px 17px;
+      cursor: pointer;
+      pointer-events: all;
+      z-index: 85;
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+
+      @include mobile {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
+
+    h2 {
+      margin: 20px;
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+
+    p {
+      font-size: 20px;
+
+      @include tablet {
+        display: flex;
+        font-size: 15px;
+        text-align: center;
+        padding: 10px;
+      }
+    }
+
+    .emailInput {
+      width: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      border-radius: 5px;
+      position: relative;
+
+      @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+
+      & input {
+        font-size: 16px;
+        flex: 1;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+
+        @include tablet {
+          font-size: 14px;
+          width: 140px;
+        }
+      }
+
+      & .input-error {
+        border: 2px solid red;
+      }
+    }
+
+    & .inputBox {
+      width: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      border-radius: 5px;
+      position: relative;
+
+      @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+
+      & .passwordInput,
+      & .usernameInput {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        & input {
+          font-size: 16px;
+          width: 100%;
+          height: 50px;
+          border: none;
+          outline: none;
+          padding: 0 10px;
+
+          @include tablet {
+            font-size: 14px;
+            width: 140px;
+          }
+        }
+
+        & .input-error {
+          border: 2px solid red;
+        }
+
+        & .toggle-password {
+          color: black;
+          font-weight: 500;
+          position: absolute;
+          right: 20px;
+          cursor: pointer;
+
+          @include tablet {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .registerButton {
+      width: 150px;
+      height: 100%;
+      padding-bottom: 10px;
+      background-color: red;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 5px;
+      font-size: 18px;
+      cursor: pointer;
+
+      @include tablet {
+        font-size: 14px;
+        width: 110px;
+        text-align: center;
+      }
+
+      @include mobile {
+        font-size: 12px;
+      }
+
+      &:hover {
+        background-color: rgb(198, 25, 25);
+      }
+
+      &:disabled {
+        filter: contrast(0.8);
+      }
+    }
+
+    .apiError,
+    .registerError {
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 5px;
+      margin-top: 5px;
+      position: absolute;
+      bottom: 175px;
+
+      .error {
+        color: red;
+        font-size: 16px;
+        padding: 5px 15px;
+        text-align: center;
+
+        @include tablet {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

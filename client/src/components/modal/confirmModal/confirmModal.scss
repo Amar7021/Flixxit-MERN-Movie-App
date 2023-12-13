@@ -1,0 +1,16 @@
+.modalBtn {
+  width: 80px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

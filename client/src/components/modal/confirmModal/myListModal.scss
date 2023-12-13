@@ -1,0 +1,87 @@
+@import "../../../app.scss";
+
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 400px;
+  height: 170px;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
+
+  @include tablet {
+    width: 300px;
+    height: 200px;
+  }
+
+  h3 {
+    color: white;
+    padding: 20px;
+  }
+
+  p {
+    text-align: center;
+    color: white;
+    margin: 10px;
+    font-weight: normal;
+  }
+
+  .confirmModal {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+
+    .clearBtn {
+      width: 60px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: white;
+      padding: 8px;
+      cursor: pointer;
+      margin: 10px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .confirmBtn {
+      width: 60px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: red;
+      padding: 8px;
+      cursor: pointer;
+      margin: 10px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

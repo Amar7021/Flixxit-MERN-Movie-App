@@ -1,0 +1,110 @@
+@import "../../../app.scss";
+
+.footer {
+  background-color: #0b0b0b;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: auto;
+  overflow: hidden;
+
+  .socials {
+    margin-left: 175px;
+    padding-top: 50px;
+
+    @include tablet {
+      margin-left: 100px;
+    }
+
+    @include mobile {
+      margin-left: 58px;
+    }
+
+    .fa-brands {
+      padding: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+
+  .footerColumns {
+    padding: 5px 0px 15px 5px;
+    margin-left: 170px;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-gap: 80px 80px;
+
+    @include large {
+      padding: 0;
+      grid-gap: 0 20px;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, max-content);
+      padding: 0px;
+      margin-left: 100px;
+      grid-gap: 0px 80px;
+    }
+
+    @include mobile {
+      padding: 0px;
+      margin-left: 50px;
+      grid-gap: 0px 30px;
+    }
+  }
+
+  .footerCol {
+    padding: 5px;
+  }
+
+  li {
+    list-style: none;
+    padding: 5px;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  select {
+    width: 120px;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .icon {
+    color: white;
+    font-size: 12px;
+  }
+
+  #language {
+    padding: 10px;
+  }
+
+  .footerEnd {
+    display: flex;
+    flex-direction: column;
+    margin-left: 162px;
+    padding: 0px 0px 15px 20px;
+    color: rgba(255, 255, 255, 0.7);
+
+    @include tablet {
+      margin-left: 88px;
+    }
+
+    @include mobile {
+      margin: 20px 0px 0px 40px;
+    }
+  }
+
+  p {
+    padding-top: 20px;
+  }
+}

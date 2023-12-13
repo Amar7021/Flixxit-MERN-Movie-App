@@ -1,0 +1,39 @@
+@import "../../app.scss";
+
+.tvShows {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  color: white;
+  overflow-x: hidden;
+
+  & .data {
+    margin-top: 100px;
+
+    & select {
+      cursor: pointer;
+      background-color: var(--main-color);
+      border: 1px solid white;
+      color: white;
+      margin: 0 0 20px 50px;
+      padding: 5px;
+
+      @include tablet {
+        padding: 5px 0 5px 5px;
+        margin-left: 50%;
+        font-size: 12px;
+      }
+    }
+
+    & .notAvailable {
+      text-align: center;
+      color: white;
+      margin-top: 64px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import "../../app.scss";
+
+.featured {
+  height: 76vh;
+  position: relative;
+  object-fit: contain;
+
+  @include tablet {
+    height: 70vh;
+  }
+
+  @include mobile {
+    height: 45vh;
+  }
+
+  .info {
+    width: 35%;
+    position: absolute;
+    left: 50px;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include tablet {
+      top: 40%;
+      width: 55%;
+    }
+
+    @include mobile {
+      top: 25%;
+      width: 55%;
+    }
+
+    .movieTitle {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: 3px;
+
+      @include tablet {
+        font-size: 32px;
+        letter-spacing: 2px;
+      }
+
+      @include tablet {
+        font-size: 24px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .movieDesc {
+      font-size: 16px;
+      letter-spacing: 1px;
+
+      @include tablet {
+        font-size: 14px;
+      }
+
+      @include mobile {
+        font-size: 12px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+
+      & .play {
+        width: 100px;
+        height: 45px;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        gap: 5px;
+        cursor: pointer;
+        background-color: rgba(185, 185, 185, 0.5);
+        color: #fff;
+
+        @include tablet {
+          width: 90px;
+          height: 35px;
+          font-size: 14px;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.678);
+          color: var(--main-color);
+        }
+      }
+
+      .playIcon {
+        font-size: 32px;
+
+        @include mobile {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .age-rating {
+    color: #f4f1e9;
+    font-size: 18px;
+    position: absolute;
+    right: -178%;
+    padding: 8px 80px 8px 8px;
+    background-color: rgba(216, 216, 216, 0.866);
+    border-left: 3px solid lightgray;
+
+    @include tablet {
+      right: -45%;
+      padding-right: 30px;
+      font-size: 16px;
+    }
+
+    @include mobile {
+      right: -40%;
+      padding-right: 30px;
+      font-size: 12px;
+    }
+  }
+}
