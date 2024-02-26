@@ -1,40 +1,41 @@
-import { useState } from "react";
-import video from "../../assets/video.mp4";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import video from "../../assets/video.mp4"
+import { Link } from "react-router-dom"
 import {
   Add,
   Check,
   PlayArrow,
   ThumbDownOutlined,
   ThumbUpAltOutlined,
-} from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "../../services/helper";
-import toast from "react-hot-toast";
-import { fetchMyList } from "../../redux/features/myListSlice";
-import "./card.scss";
+} from "@mui/icons-material"
+import { useDispatch, useSelector } from "react-redux"
+import axios from "../../services/helper"
+import toast from "react-hot-toast"
+import { fetchMyList } from "../../redux/features/myListSlice"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "react-lazy-load-image-component/src/effects/blur.css"
+import "./card.scss"
 
 const Card = ({ movie }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const favMovies = useSelector(state => state.myLists.movies);
-  const { currentUser } = useSelector(state => state.user);
-  const dispatch = useDispatch();
+  const [isHovered, setIsHovered] = useState(false)
+  const favMovies = useSelector((state) => state.myLists.movies)
+  const { currentUser } = useSelector((state) => state.user)
+  const dispatch = useDispatch()
 
   // Add to My List
-  const handleAddToList = async movie => {
-    // setIsAdded(p => !p);
+  const handleAddToList = async (movie) => {
     try {
       await axios.post("/user/addmovie", {
         email: currentUser.email,
         data: movie,
-      });
-      dispatch(fetchMyList(currentUser.email));
-      toast.success("Movie added to My List.");
+      })
+      dispatch(fetchMyList(currentUser.email))
+      toast.success("Movie added to My List.")
     } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data?.Error || "An error occurred");
+      console.log(error)
+      toast.error(error.response?.data?.Error || "An error occurred")
     }
-  };
+  }
 
   // Remove from My List
   const handleRemoveFromList = async () => {
@@ -42,14 +43,14 @@ const Card = ({ movie }) => {
       await axios.put(`/user/removemovie`, {
         email: currentUser.email,
         movieId: movie.id,
-      });
-      dispatch(fetchMyList(currentUser.email));
-      toast.success("Movie removed from My List");
+      })
+      dispatch(fetchMyList(currentUser.email))
+      toast.success("Movie removed from My List")
     } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data?.Error || "An error occurred");
+      console.log(error)
+      toast.error(error.response?.data?.Error || "An error occurred")
     }
-  };
+  }
 
   return (
     <div
@@ -57,9 +58,10 @@ const Card = ({ movie }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
+      <LazyLoadImage
         src={`https://image.tmdb.org/t/p/w500${movie.image}`}
         alt="movie"
+        effect="blur"
         className="movie-image"
       />
       {isHovered && (
@@ -69,17 +71,26 @@ const Card = ({ movie }) => {
               src={`https://image.tmdb.org/t/p/w500${movie.image}`}
               alt="movie"
             />
-            <video src={video} autoPlay={true} loop muted />
+            <video
+              src={video}
+              autoPlay={true}
+              loop
+              muted
+            />
           </div>
           <div className="itemInfo">
             <div className="icons">
-              <Link to="/watch" state={{ movie }} className="playLink">
+              <Link
+                to="/watch"
+                state={{ movie }}
+                className="playLink"
+              >
                 <div className="play">
                   <PlayArrow className="playIcon" />
                   <p className="playContent">Play</p>
                 </div>
               </Link>
-              {favMovies?.some(favMovie => favMovie.id === movie.id) ? (
+              {favMovies?.some((favMovie) => favMovie.id === movie.id) ? (
                 <div className="remove">
                   <Check
                     className="removeIcon"
@@ -104,7 +115,7 @@ const Card = ({ movie }) => {
             </div>
             <div className="genre">
               <ul className="genreList">
-                {movie.genres.map(genre => (
+                {movie.genres.map((genre) => (
                   <li key={genre}>{genre}</li>
                 ))}
               </ul>
@@ -113,7 +124,7 @@ const Card = ({ movie }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 65px;
+    height: 55px;
 
     @include mobile {
       padding: 0 20px;
@@ -88,6 +88,7 @@
         color: white;
         margin-right: 15px;
         font-size: 16px;
+        text-transform: capitalize;
       }
 
       .icon {
@@ -143,7 +144,7 @@
         .profileIcon {
           margin-right: 10px;
           margin-bottom: -4px;
-          font-size: 20px;
+          font-size: 18px;
         }
 
         &:hover {
@@ -152,7 +153,7 @@
             flex-direction: column;
             position: absolute;
             right: 50px;
-            top: 50px;
+            top: 45px;
           }
         }
       }

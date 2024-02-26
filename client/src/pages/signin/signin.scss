@@ -1,30 +1,25 @@
-.login {
+.signin {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      to top left,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%
-    ),
-    url("https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/54a0de92-feb4-4891-8cb3-00a794ec89f6/IN-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background: url("https://www.plex.tv/wp-content/uploads/2024/01/Watch-Free-Hero-2048x1152-3-1536x864.png");
   background-size: cover;
   color: white;
   position: relative;
 
-  & .top {
-    & .wrapper {
+  .top {
+    .top_wrapper {
       padding: 25px 55px;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      & .logo {
+      .logo {
         height: 40px;
       }
     }
   }
 
-  & .container {
+  .container {
     width: 40%;
     height: 90%;
     margin: 0 auto;
@@ -35,7 +30,7 @@
     gap: 15px;
     margin-top: -40px;
 
-    & .auth-form {
+    .auth_form {
       width: 350px;
       height: 550px;
       padding: 30px;
@@ -45,11 +40,11 @@
       flex-direction: column;
       gap: 30px;
 
-      & .email-input {
+      .email_input {
         position: relative;
       }
 
-      & input {
+      input {
         height: 50px;
         min-width: 290px;
         text-indent: 10px;
@@ -66,12 +61,12 @@
         }
       }
 
-      & .input-error {
+      .input_error {
         border: 2px solid red !important;
       }
 
-      & .passwordError,
-      & .emailError {
+      .password_error,
+      .email_error {
         position: absolute;
         bottom: -20px;
 
@@ -82,10 +77,10 @@
         }
       }
 
-      & .password-input {
+      .password_input {
         position: relative;
 
-        & .toggle-password {
+        .toggle_password {
           position: absolute;
           top: 30%;
           right: 15px;
@@ -95,14 +90,14 @@
         }
       }
 
-      .apiError {
+      .api_error {
         color: red;
         font-size: 14px;
         margin-top: -25px;
         text-align: center;
       }
 
-      .loginButton {
+      .login_button {
         height: 50px;
         width: 290px;
         border-radius: 5px;
@@ -122,14 +117,14 @@
           filter: contrast(0.8);
         }
 
-        & .loadingBtn {
+        .loading_btn {
           display: flex;
-          align-items: center;
           justify-content: center;
-          gap: 15px;
+          gap: 10px;
 
-          .signIn {
-            color: white;
+          .sign_in {
+            font-size: 16px;
+            color: #fff;
           }
         }
       }
@@ -138,7 +133,7 @@
         color: #737373;
         margin: 30px 0;
 
-        .signUpLink {
+        .signup_link {
           color: white;
           text-decoration: none;
           cursor: pointer;

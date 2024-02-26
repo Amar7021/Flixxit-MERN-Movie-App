@@ -1,0 +1,170 @@
+@import "../../app.scss";
+
+.signup {
+  width: 100vw;
+  height: 100vh;
+  background: url("https://www.plex.tv/wp-content/uploads/2024/01/Watch-Free-Hero-2048x1152-3-1536x864.png")
+    no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .top {
+    .top_wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        height: 40px;
+      }
+    }
+
+    .signin_button {
+      background-color: #d60101;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 6px 17px;
+      cursor: pointer;
+      pointer-events: all;
+      z-index: 85;
+    }
+  }
+
+  .container {
+    width: 40%;
+    height: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -40px;
+
+    .auth_form {
+      width: 350px;
+      height: 550px;
+      padding: 30px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .signup_header {
+        color: #fff;
+      }
+
+      .username_input,
+      .email_input {
+        position: relative;
+      }
+
+      input {
+        height: 50px;
+        min-width: 290px;
+        text-indent: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        padding-left: 10px;
+        font-size: 16px;
+
+        &::placeholder {
+          color: #8c8c8c;
+        }
+      }
+
+      .input_error {
+        border: 2px solid red !important;
+      }
+
+      .username_error,
+      .password_error,
+      .email_error {
+        position: absolute;
+        bottom: -20px;
+
+        .error {
+          text-indent: 10px;
+          color: red;
+          font-size: 14px;
+        }
+      }
+
+      .password_input {
+        position: relative;
+
+        .toggle_password {
+          position: absolute;
+          top: 30%;
+          right: 15px;
+          cursor: pointer;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+
+      .api_error {
+        color: red;
+        font-size: 14px;
+        margin-top: -25px;
+        text-align: center;
+      }
+
+      .signup_button {
+        height: 50px;
+        width: 290px;
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:disabled {
+          filter: contrast(0.8);
+        }
+
+        .loading_btn {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+
+          .sign_up {
+            font-size: 16px;
+            color: #fff;
+          }
+        }
+      }
+
+      .account_confirm {
+        color: #737373;
+        margin: 30px 0;
+
+        .signup_Link {
+          color: white;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

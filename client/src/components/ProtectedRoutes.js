@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
-import LoadingPage from "./AnimatedSVGs/LoadingPage";
+import { useSelector } from "react-redux"
+import { Navigate, Outlet } from "react-router-dom"
+import LoadingPage from "./AnimatedSVGs/LoadingPage"
 
 const ProtectedRoutes = () => {
-  const { currentUser, loading } = useSelector(state => state.user);
+  const { currentUser, loading } = useSelector((state) => state.user)
 
   if (loading) {
-    return <LoadingPage />;
+    return <LoadingPage />
   }
 
-  return currentUser ? <Outlet /> : <Navigate to="/login" />;
-};
+  return currentUser ? <Outlet /> : <Navigate to="/signin" />
+}
 
-export default ProtectedRoutes;
+export default ProtectedRoutes

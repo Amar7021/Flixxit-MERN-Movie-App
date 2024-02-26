@@ -1,23 +1,26 @@
-import { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NoMatch from "./components/noMatch/NoMatch";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import LoadingPage from "./components/AnimatedSVGs/LoadingPage";
-import { Toaster } from "react-hot-toast";
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import "./app.scss";
+import { Suspense, lazy } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import NoMatch from "./components/noMatch/NoMatch"
+import Signin from "./pages/signin/Signin"
+import Signup from "./pages/signup/Signup"
+import LoadingPage from "./components/AnimatedSVGs/LoadingPage"
+import { Toaster } from "react-hot-toast"
+import ProtectedRoutes from "./components/ProtectedRoutes"
+import "./app.scss"
 
-const LazyHome = lazy(() => import("./pages/home/Home"));
-const LazyMyList = lazy(() => import("./pages/myList/MyList"));
-const LazyMovies = lazy(() => import("./pages/movies/Movies"));
-const LazyTVShows = lazy(() => import("./pages/tvShows/TVShows"));
-const LazyWatch = lazy(() => import("./pages/watch/Watch"));
+const LazyHome = lazy(() => import("./pages/home/Home"))
+const LazyMyList = lazy(() => import("./pages/myList/MyList"))
+const LazyMovies = lazy(() => import("./pages/movies/Movies"))
+const LazyTVShows = lazy(() => import("./pages/tvShows/TVShows"))
+const LazyWatch = lazy(() => import("./pages/watch/Watch"))
 
 const App = () => {
   return (
     <Router>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <Routes>
         {/* *********** PRIVATE ROUTE **********************  */}
         <Route element={<ProtectedRoutes />}>
@@ -65,12 +68,21 @@ const App = () => {
         </Route>
 
         {/* ***************** PUBLIC ROUTE ********************* */}
-        <Route path="*" element={<NoMatch />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="*"
+          element={<NoMatch />}
+        />
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
+        <Route
+          path="/signin"
+          element={<Signin />}
+        />
       </Routes>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App

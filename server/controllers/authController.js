@@ -74,14 +74,15 @@ const loginUser = async (req, res) => {
   }
 }
 
-const logoutUser = async (req, res) => {
+const logoutUser = async (_, res) => {
   try {
-    res.clearCookie("access_token", {
-      sameSite: "None",
-      secure: true,
-    })
-
-    res.status(200).json({ Message: "Logout successful!" })
+    res
+      .clearCookie("access_token", {
+        sameSite: "None",
+        secure: true,
+      })
+      .status(200)
+      .json({ Message: "Logout successful!" })
   } catch (error) {
     return res.status(500).json({ Error: "Internal server error!" })
   }
