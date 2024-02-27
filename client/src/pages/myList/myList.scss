@@ -15,7 +15,7 @@
       align-items: center;
       gap: 10px;
       justify-content: space-between;
-      margin: 100px 0 90px;
+      margin: 100px 0;
 
       h2 {
         color: white;
@@ -82,6 +82,10 @@
     }
 
     @include mobile {
+      justify-content: center;
+    }
+
+    @include xSmall {
       justify-content: center;
     }
   }
