@@ -4,7 +4,6 @@
   background-color: #0b0b0b;
   color: rgba(255, 255, 255, 0.7);
   margin-top: auto;
-  overflow: hidden;
 
   .socials {
     margin-left: 175px;
@@ -15,7 +14,11 @@
     }
 
     @include mobile {
-      margin-left: 58px;
+      margin-left: 70px;
+    }
+
+    @include xSmall {
+      margin-left: 40px;
     }
 
     .fa-brands {
@@ -30,24 +33,23 @@
     margin-left: 170px;
     display: grid;
     grid-template-columns: repeat(4, max-content);
-    grid-gap: 80px 80px;
-
-    @include large {
-      padding: 0;
-      grid-gap: 0 20px;
-    }
+    grid-gap: 100px;
 
     @include tablet {
-      grid-template-columns: repeat(2, max-content);
-      padding: 0px;
       margin-left: 100px;
-      grid-gap: 0px 80px;
+      grid-gap: 20px;
     }
 
     @include mobile {
-      padding: 0px;
-      margin-left: 50px;
+      grid-template-columns: repeat(1, max-content);
+      margin-left: 60px;
       grid-gap: 0px 30px;
+    }
+
+    @include xSmall {
+      grid-template-columns: repeat(1, max-content);
+      margin-left: 30px;
+      grid-gap: 0px;
     }
   }
 
@@ -100,7 +102,11 @@
     }
 
     @include mobile {
-      margin: 20px 0px 0px 40px;
+      margin-left: 60px;
+    }
+
+    @include xSmall {
+      margin-left: 40px;
     }
   }
 

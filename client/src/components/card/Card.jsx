@@ -111,13 +111,15 @@ const Card = ({ movie }) => {
               <ThumbDownOutlined className="icon" />
             </div>
             <div className="itemInfoTop">
-              <span>{movie?.name}</span>
+              <span className="movieName">{movie?.name}</span>
             </div>
             <div className="genre">
               <ul className="genreList">
-                {movie.genres.map((genre) => (
-                  <li key={genre}>{genre}</li>
-                ))}
+                {movie.genres && movie.genres.length > 0 ? (
+                  movie.genres.map((genre) => <li key={genre}>{genre}</li>)
+                ) : (
+                  <li>Adventure</li>
+                )}
               </ul>
             </div>
           </div>

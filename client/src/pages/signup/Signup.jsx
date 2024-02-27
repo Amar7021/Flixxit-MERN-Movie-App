@@ -33,7 +33,7 @@ const Signup = () => {
     } catch (error) {
       setTimeout(() => {
         setIsLoading(false)
-        setIsError(error.response?.data?.Error || "An error occurred")
+        setIsError(error.response?.data?.Error)
       }, 1000)
     }
   }
@@ -63,12 +63,6 @@ const Signup = () => {
               alt="Flixxit logo"
               className="logo"
             />
-            <button
-              onClick={() => navigate("/signin")}
-              className="signin_button"
-            >
-              Sign In
-            </button>
           </div>
         </div>
         <div className="container">

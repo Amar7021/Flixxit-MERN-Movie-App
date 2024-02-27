@@ -37,7 +37,7 @@ const MyList = () => {
     <>
       <div className="myList">
         <Navbar />
-        <div className="container">
+        <div className="myListcontainer">
           <div className="favContainer">
             <h2>
               <Favorite className="heartIcon" /> Your Favourites:{" "}

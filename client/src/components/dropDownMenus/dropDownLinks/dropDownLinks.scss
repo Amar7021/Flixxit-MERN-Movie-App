@@ -1,13 +1,23 @@
-.dropDownPage {
+@import "../../../app.scss";
+.dropDownLinks {
+  display: block;
   width: 150px;
   height: 150px;
   background-color: var(--main-color);
   border-radius: 10px;
   position: absolute;
   top: 65px;
-  left: 120px;
+  left: 140px;
   transform: translateY(20);
   transition: 0.5s ease-in;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include large {
+    display: none;
+  }
 
   &::before {
     content: "";

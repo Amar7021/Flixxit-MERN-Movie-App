@@ -34,7 +34,7 @@ const Signin = () => {
       }, 1000)
     } catch (error) {
       setTimeout(() => {
-        setIsError(error.response?.data?.Error || "An error occurred")
+        setIsError(error.response?.data?.Error)
         dispatch(authFailed(error.message))
       }, 1000)
     }

@@ -8,8 +8,8 @@ import {
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { logoutSuccess } from "../../../redux/features/userSlice"
-import { Link, NavLink, useNavigate } from "react-router-dom"
-import DropDownPage from "../../dropDownMenus/dropDownPage/DropDownPage"
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
+import DropDownPage from "../../dropDownMenus/dropDownLinks/DropDownLinks"
 import DropDownProfile from "../../dropDownMenus/dropDownProfile/DropDownProfile"
 import flixxitLogo from "../../../assets/flixxitLogo.png"
 import axios from "../../../services/helper"
@@ -24,11 +24,7 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const menuRef = useRef(null)
-
-  window.onscroll = () => {
-    setIsScrolled(window.scrollY === 0 ? false : true)
-    return () => (window.onscroll = null)
-  }
+  const location = useLocation()
 
   const handleOutsideClick = (ref, stateSetter) => {
     const handleClick = (e) => {
@@ -45,11 +41,21 @@ const Navbar = () => {
 
   useEffect(() => {
     handleOutsideClick(menuRef, setOpenMenu)
-  }, [menuRef])
+    handleOutsideClick(menuRef, setOpenProfile)
+    window.scrollTo(0, 0)
+  }, [menuRef, location])
 
   useEffect(() => {
-    handleOutsideClick(menuRef, setOpenProfile)
-  }, [menuRef])
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY === 0 ? false : true)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   const handleLogout = async () => {
     try {
@@ -88,25 +94,25 @@ const Navbar = () => {
             to="/"
             className="link"
           >
-            <span>Home</span>
+            <span className="navigation_link">Home</span>
           </NavLink>
           <NavLink
             to="/tv"
             className="link"
           >
-            <span className="navbarmainLinks">TV Shows</span>
+            <span className="navigation_link">TV Shows</span>
           </NavLink>
           <NavLink
             to="/movies"
             className="link"
           >
-            <span className="navbarmainLinks">Movies</span>
+            <span className="navigation_link">Movies</span>
           </NavLink>
           <NavLink
             to="/mylist"
             className="link"
           >
-            <span className="navbarmainLinks">My List</span>
+            <span className="navigation_link">My List</span>
           </NavLink>
         </div>
         <div className="right">

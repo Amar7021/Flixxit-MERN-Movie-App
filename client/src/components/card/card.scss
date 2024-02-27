@@ -9,7 +9,7 @@
   margin-right: 10px;
   background-color: var(--main-color);
 
-  & .movie-image {
+  .movie-image {
     border-radius: 5px;
     width: 100%;
     height: 100%;
@@ -27,32 +27,34 @@
     background-color: var(--main-color);
     transition: 0.3s ease-in-out;
 
-    @include large {
-      top: -9vh;
+    @include mobile {
+      width: 16rem;
     }
 
-    @include mobile {
-      top: -9.5vh;
+    @include xSmall {
+      width: 15rem;
     }
 
     .videoContainer {
       position: relative;
       height: 140px;
+      border-radius: 5px 5px 0 0;
 
       img {
         width: 100%;
-        height: 140px;
+        height: 100%;
         object-fit: cover;
         top: 0;
         z-index: 4;
         position: absolute;
+        border-radius: inherit;
       }
 
       video {
         width: 100%;
-        height: 140px;
+        height: 100%;
         object-fit: cover;
-        border-radius: 5px 5px 0 0;
+        border-radius: inherit;
         top: 0;
         z-index: 5;
         position: absolute;
@@ -238,34 +240,31 @@
       }
 
       .itemInfoTop {
-        display: flex;
-        align-items: center;
+        padding-right: 5px;
         margin-bottom: 10px;
-        font-size: 14px;
-        font-weight: 600;
-        color: gray;
 
-        .limit {
-          border: 1px solid gray;
-          padding: 1px 3px;
-          margin: 0 10px;
+        .movieName {
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+          display: inline-block;
         }
       }
 
-      .desc {
-        font-size: 13px;
-        margin-bottom: 10px;
-      }
-
       .genre {
-        font-size: 14px;
-        color: lightgray;
+        padding-bottom: 10px;
 
         .genreList {
           display: flex;
           gap: 10px;
 
           li {
+            font-size: 14px;
+            color: lightgray;
             list-style: none;
           }
         }
