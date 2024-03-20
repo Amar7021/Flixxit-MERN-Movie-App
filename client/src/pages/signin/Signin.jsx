@@ -10,7 +10,7 @@ import {
   authFailed,
   authSuccessful,
 } from "../../redux/features/userSlice"
-import LoadingSVG from "../../components/AnimatedSVGs/LoadingSVG"
+import LoadingSVG from "../../components/loadingSVGs/LoadingSVG"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import Footer from "../../components/common/footer/Footer"
@@ -30,7 +30,14 @@ const Signin = () => {
       setTimeout(() => {
         dispatch(authSuccessful(response.data))
         navigate("/")
-        toast.success("Login Successful!")
+        toast("Signin Successful!", {
+          icon: "✅",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        })
       }, 1000)
     } catch (error) {
       setTimeout(() => {

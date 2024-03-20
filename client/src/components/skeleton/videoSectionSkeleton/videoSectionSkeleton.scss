@@ -1,0 +1,43 @@
+@import "../../../app.scss";
+
+.sk-video-section {
+  display: flex;
+  gap: 10px;
+  width: 90vw;
+  overflow: hidden;
+
+  .video-sk {
+    .video-item-sk {
+      width: 200px;
+      height: 112px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+
+      @include mobile {
+        width: 147px;
+        max-width: 236px;
+        height: 82px;
+      }
+
+      @include xSmall {
+        width: 147px;
+        max-width: 236px;
+        height: 82px;
+      }
+    }
+
+    .video-title-sk {
+      width: 200px;
+
+      @include mobile {
+        width: 147px;
+        max-width: 236px;
+      }
+
+      @include xSmall {
+        width: 147px;
+        max-width: 236px;
+      }
+    }
+  }
+}

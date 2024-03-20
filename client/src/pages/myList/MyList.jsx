@@ -1,35 +1,54 @@
 import { useDispatch, useSelector } from "react-redux"
 import Navbar from "../../components/common/navbar/Navbar"
 import { Favorite } from "@mui/icons-material"
-import FavListItem from "../../components/favListItem/FavListItem"
-import ConfirmModal from "../../components/modal/confirmModal/ConfirmModal"
+import MovieCard from "../../components/movieCard/MovieCard"
 import Footer from "../../components/common/footer/Footer"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { fetchMyList } from "../../redux/features/myListSlice"
+import MovieCardSkeleton from "../../components/skeleton/movieCardSkeleton/MovieCardSkeleton"
+import { createPortal } from "react-dom"
+import ClearListModal from "../../components/modal/clearListModal/ClearListModal"
+import ColumnWrapper from "../../components/columnWrapper/ColumnWrapper"
 import axios from "../../services/helper"
 import toast from "react-hot-toast"
-import { fetchMyList } from "../../redux/features/myListSlice"
 import "./myList.scss"
 
 const MyList = () => {
   const dispatch = useDispatch()
   const { currentUser } = useSelector((state) => state.user)
   const { movies, loading } = useSelector((state) => state.myLists)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     dispatch(fetchMyList(currentUser.email))
   }, [dispatch, currentUser.email])
 
-  const removeFromList = async (movieId) => {
+  // Remove from My List
+  const handleRemoveFromList = async (movie) => {
     try {
-      await axios.put(`user/removemovie`, {
+      await axios.put(`/user/removemovie`, {
         email: currentUser.email,
-        movieId,
+        movieId: movie?.id,
       })
       dispatch(fetchMyList(currentUser.email))
-      toast.success("Movie removed from My List")
+      toast("Movie removed from My List", {
+        icon: "✅",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      })
     } catch (error) {
       console.log(error)
-      toast.error(error.response?.data?.Error || "An error occurred")
+      toast(error?.response?.data?.Error, {
+        icon: "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      })
     }
   }
 
@@ -37,34 +56,54 @@ const MyList = () => {
     <>
       <div className="myList">
         <Navbar />
-        <div className="myListcontainer">
+        <ColumnWrapper>
           <div className="favContainer">
             <h2>
               <Favorite className="heartIcon" /> Your Favourites:{" "}
               {movies?.length}
             </h2>
-            {movies?.length > 0 && <ConfirmModal movies={movies} />}
+            {movies?.length > 0 && (
+              <>
+                <button
+                  type="button"
+                  className="clear-btn"
+                  onClick={() => setIsOpen(true)}
+                >
+                  Clear List
+                </button>
+                {isOpen &&
+                  createPortal(
+                    <ClearListModal setIsOpen={setIsOpen} />,
+                    document.body
+                  )}
+              </>
+            )}
           </div>
           {loading ? (
-            <h3 style={{ color: "#fff", padding: "20px 0 0 50px" }}>
-              Loading...
-            </h3>
+            <MovieCardSkeleton cards={4} />
           ) : movies?.length === 0 ? (
             <h2 className="subHeading">
               Add Something In Your List To Watch Later.
             </h2>
           ) : (
-            <div className="favlistItem">
-              {movies.map((movie) => (
-                <FavListItem
-                  key={movie.id}
-                  movie={movie}
-                  removeFromList={() => removeFromList(movie.id)}
-                />
+            <div className="favLists">
+              {movies?.map((movie) => (
+                <div
+                  className="list-item"
+                  key={movie?.id}
+                >
+                  <MovieCard movie={movie} />
+                  <button
+                    className="remove-fav-btn"
+                    onClick={() => handleRemoveFromList(movie)}
+                  >
+                    Remove
+                  </button>
+                </div>
               ))}
             </div>
           )}
-        </div>
+        </ColumnWrapper>
       </div>
       <Footer />
     </>

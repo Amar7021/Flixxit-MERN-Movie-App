@@ -1,0 +1,98 @@
+@import "../../../app.scss";
+
+.banner-sk {
+  width: 100%;
+  margin-bottom: 30px;
+
+  .skeleton-details {
+    display: flex;
+    gap: 50px;
+    width: 80vw;
+    margin: 0 auto;
+
+    @include tablet {
+      gap: 30px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    @include xSmall {
+      flex-direction: column;
+    }
+
+    .sk-left {
+      max-width: 350px;
+      flex: 1;
+
+      @include mobile {
+        max-width: 300px;
+        height: 450px;
+        margin: 0 30px 0 40px;
+      }
+
+      @include xSmall {
+        max-width: 250px;
+        height: 450px;
+      }
+
+      .image-sk {
+        width: 100%;
+        height: 524px;
+        border-radius: 10px;
+
+        @include mobile {
+          height: 450px;
+        }
+      }
+    }
+
+    .sk-right {
+      flex: 1;
+      margin: 0 40px 0 20px;
+
+      .sk-title {
+        margin-bottom: 15px;
+        padding: 5px;
+      }
+
+      .sk-genres {
+        margin-bottom: 10px;
+
+        .genre-items {
+          padding: 5px;
+          width: 100px;
+          margin-bottom: 15px;
+        }
+      }
+
+      .sk-rating-info {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 20px;
+
+        .fav-action {
+          margin-left: 20px;
+        }
+      }
+
+      .sk-tagline {
+        margin-bottom: 25px;
+      }
+
+      .sk-overview-info {
+        padding: 2.5px;
+        margin-bottom: 15px;
+      }
+
+      .sk-overview {
+        margin-bottom: 10px;
+      }
+
+      .sk-movie-info {
+        margin-top: 25px;
+      }
+    }
+  }
+}

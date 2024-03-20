@@ -2,11 +2,9 @@
 
 .navbar {
   width: 100%;
-  color: white;
-  font-size: 14px;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
   background: linear-gradient(360deg, transparent 0%, rgb(0, 0, 0, 0.3) 100%);
 
   &.scrolled {
@@ -18,7 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 55px;
+    height: 50px;
+    color: white;
 
     @include xSmall {
       padding: 0 20px;
@@ -35,74 +34,52 @@
     .left {
       display: flex;
       align-items: center;
+      gap: 20px;
 
       img {
-        height: 30px;
-        margin-right: 80px;
+        height: 25px;
+        margin-right: 60px;
         cursor: pointer;
-
-        @include tablet {
-          margin-right: 20px;
-        }
 
         @include mobile {
           height: 25px;
-          margin-right: 20px;
         }
 
         @include xSmall {
           height: 25px;
-          margin-right: 10px;
         }
       }
 
-      .mobileDropDown {
-        .arrowDropDownLeft {
-          display: none;
-          margin-right: 20px;
-          cursor: pointer;
-
-          @include mobile {
-            display: block;
-          }
-
-          @include xSmall {
-            display: block;
-          }
-        }
-      }
-
-      .visible {
-        opacity: 1;
-        visibility: visible;
-        transition: 0.5s ease;
-      }
-
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.5s ease;
-      }
-
-      .navigation_link {
-        margin-right: 20px;
-        cursor: pointer;
-
-        @include mobile {
-          display: none;
-        }
-
-        @include xSmall {
-          display: none;
-        }
+      .link {
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
 
         &:hover {
-          color: #8f8f8f;
+          background-color: red;
+        }
+
+        @include tablet {
+          display: none;
+        }
+
+        @include mobile {
+          display: none;
+        }
+
+        @include xSmall {
+          display: none;
+        }
+
+        .navigation_link {
+          cursor: pointer;
+          font-size: 14px;
         }
       }
 
       .active {
-        color: #8f8f8f;
+        background-color: red;
+        border-radius: 5px;
       }
     }
 
@@ -115,6 +92,18 @@
         margin-right: 15px;
         font-size: 16px;
         text-transform: capitalize;
+
+        @include tablet {
+          display: none;
+        }
+
+        @include mobile {
+          display: none;
+        }
+
+        @include xSmall {
+          display: none;
+        }
       }
 
       .icon {
@@ -134,51 +123,53 @@
         }
       }
 
-      img {
-        width: 30px;
-        height: 30px;
+      .profile-img {
+        width: 25px;
+        height: 25px;
         border-radius: 5px;
         object-fit: cover;
         cursor: pointer;
-      }
 
-      .visible {
-        opacity: 1;
-        visibility: visible;
-        transition: 0.5s ease;
-      }
+        @include tablet {
+          margin-right: 15px;
+        }
 
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.5s ease;
+        @include mobile {
+          margin-right: 15px;
+        }
+
+        @include xSmall {
+          margin-right: 15px;
+        }
       }
 
       .profile {
         .options {
           display: none;
-          background-color: var(--main-color);
+          background-color: #333;
           border-radius: 5px;
           width: 180px;
 
           &::before {
             content: "";
             position: absolute;
-            width: 15px;
-            height: 15px;
-            top: -5px;
-            right: 20px;
+            width: 18px;
+            height: 18px;
+            top: -6px;
+            right: 18px;
             transform: rotate(45deg) translate(-7.5%, -6%);
-            background-color: var(--main-color);
+            background-color: #333;
           }
         }
 
         span {
           padding: 10px;
           cursor: pointer;
+          transition: 0.3s ease;
+          color: #aaa;
 
           &:hover {
-            color: #8f8f8f;
+            color: white;
             text-decoration: underline;
           }
         }
@@ -213,6 +204,15 @@
         }
 
         @include mobile {
+          display: none;
+        }
+      }
+
+      .mobile-menu {
+        color: white;
+        cursor: pointer;
+
+        @include large {
           display: none;
         }
       }

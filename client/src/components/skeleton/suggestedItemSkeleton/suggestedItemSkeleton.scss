@@ -1,0 +1,48 @@
+@import "../../../app.scss";
+
+.sk-suggested-item {
+  display: flex;
+  gap: 30px;
+  width: 85vw;
+  overflow: hidden;
+
+  @include tablet {
+    gap: 10px;
+  }
+
+  @include mobile {
+    gap: 10px;
+  }
+
+  @include xSmall {
+    gap: 10px;
+  }
+
+  .sk-suggested-card {
+    .sk-card-item {
+      width: 195px;
+      height: 290px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+
+      @include tablet {
+        width: 153px;
+        height: 229px;
+        max-width: 209px;
+        max-height: 313px;
+      }
+
+      @include mobile {
+        width: 145px;
+        height: 217px;
+        max-width: 227px;
+        max-height: 340px;
+      }
+
+      @include xSmall {
+        width: 114px;
+        height: 171px;
+      }
+    }
+  }
+}

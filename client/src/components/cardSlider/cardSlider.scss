@@ -1,52 +1,64 @@
-.cardSlider {
-  width: 100%;
+@import "../../app.scss";
+
+.card-slider {
   margin-top: 10px;
 
-  .cardTitle {
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    margin-left: 50px;
+  .slick-slider {
+    width: 100%;
   }
 
-  .wrapper {
+  .slick-list {
     position: relative;
-    padding-bottom: 15px;
-    .slider-action {
-      z-index: 999;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 30px;
-      height: 50%;
-      transition: 0.3s ease-in-out;
-      margin: auto;
-      cursor: pointer;
+    display: block !important;
 
-      & .sliderArrow {
-        font-size: 32px;
-      }
+    @include mobile {
+      overflow: visible;
     }
 
-    & .none {
-      display: none;
+    @include xSmall {
+      overflow: visible;
+    }
+  }
+
+  .slick-slide div {
+    margin-right: 5px;
+
+    @include tablet {
+      margin-right: 0;
     }
 
-    & .left {
-      left: 0;
+    @include mobile {
+      margin-right: 0;
     }
 
-    & .right {
-      right: 0;
+    @include xSmall {
+      margin-right: 0;
     }
+  }
 
-    .slider {
-      margin-left: 50px;
-      display: flex;
-      margin-top: 10px;
-      width: max-content;
-      transform: translateX(0px);
-      transition: all 1s ease;
+  .slick-prev,
+  .slick-next {
+    z-index: 99;
+  }
+
+  .slick-prev {
+    left: -38px !important;
+    color: white;
+    font-size: 1.5rem;
+    transition: scale 0.3s ease-in;
+
+    &:hover {
+      scale: 1.3;
+    }
+  }
+
+  .slick-next {
+    color: white;
+    font-size: 1.5rem;
+    transition: scale 0.3s ease-in;
+
+    &:hover {
+      scale: 1.3;
     }
   }
 }

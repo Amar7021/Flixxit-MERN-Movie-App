@@ -1,130 +1,37 @@
-import { useState } from "react"
-import video from "../../assets/video.mp4"
-import { Link } from "react-router-dom"
-import {
-  Add,
-  Check,
-  PlayArrow,
-  ThumbDownOutlined,
-  ThumbUpAltOutlined,
-} from "@mui/icons-material"
-import { useDispatch, useSelector } from "react-redux"
-import axios from "../../services/helper"
-import toast from "react-hot-toast"
-import { fetchMyList } from "../../redux/features/myListSlice"
-import { LazyLoadImage } from "react-lazy-load-image-component"
-import "react-lazy-load-image-component/src/effects/blur.css"
+import Img from "../lazyLoadingImage/Img"
+import CircularRating from "../circularRating/CircularRating"
+import dayjs from "dayjs"
+import PosterFallback from "../../assets/poster-fallback.jpg"
 import "./card.scss"
 
 const Card = ({ movie }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const favMovies = useSelector((state) => state.myLists.movies)
-  const { currentUser } = useSelector((state) => state.user)
-  const dispatch = useDispatch()
-
-  // Add to My List
-  const handleAddToList = async (movie) => {
-    try {
-      await axios.post("/user/addmovie", {
-        email: currentUser.email,
-        data: movie,
-      })
-      dispatch(fetchMyList(currentUser.email))
-      toast.success("Movie added to My List.")
-    } catch (error) {
-      console.log(error)
-      toast.error(error.response?.data?.Error || "An error occurred")
-    }
-  }
-
-  // Remove from My List
-  const handleRemoveFromList = async () => {
-    try {
-      await axios.put(`/user/removemovie`, {
-        email: currentUser.email,
-        movieId: movie.id,
-      })
-      dispatch(fetchMyList(currentUser.email))
-      toast.success("Movie removed from My List")
-    } catch (error) {
-      console.log(error)
-      toast.error(error.response?.data?.Error || "An error occurred")
-    }
-  }
+  const posterURL = movie?.poster_path
+    ? `https://image.tmdb.org/t/p/original/${movie?.poster_path}`
+    : PosterFallback
 
   return (
-    <div
-      className="card-container"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <LazyLoadImage
-        src={`https://image.tmdb.org/t/p/w500${movie.image}`}
-        alt="movie"
-        effect="blur"
-        className="movie-image"
-      />
-      {isHovered && (
-        <div className="hover">
-          <div className="videoContainer">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.image}`}
-              alt="movie"
-            />
-            <video
-              src={video}
-              autoPlay={true}
-              loop
-              muted
-            />
+    <div className="card-container">
+      <div className="card-items">
+        <div
+          key={movie.id}
+          className="card-item"
+        >
+          <div className="movie-poster">
+            <Img src={posterURL} />
           </div>
-          <div className="itemInfo">
-            <div className="icons">
-              <Link
-                to="/watch"
-                state={{ movie }}
-                className="playLink"
-              >
-                <div className="play">
-                  <PlayArrow className="playIcon" />
-                  <p className="playContent">Play</p>
-                </div>
-              </Link>
-              {favMovies?.some((favMovie) => favMovie.id === movie.id) ? (
-                <div className="remove">
-                  <Check
-                    className="removeIcon"
-                    onClick={() => handleRemoveFromList(movie)}
-                  />
-                  <p className="removeFromList">Remove from My List</p>
-                </div>
-              ) : (
-                <div className="add">
-                  <Add
-                    className="addIcon"
-                    onClick={() => handleAddToList(movie)}
-                  />
-                  <p className="addtoList">Add to My List</p>
-                </div>
-              )}
-              <ThumbUpAltOutlined className="icon" />
-              <ThumbDownOutlined className="icon" />
-            </div>
-            <div className="itemInfoTop">
-              <span className="movieName">{movie?.name}</span>
-            </div>
-            <div className="genre">
-              <ul className="genreList">
-                {movie.genres && movie.genres.length > 0 ? (
-                  movie.genres.map((genre) => <li key={genre}>{genre}</li>)
-                ) : (
-                  <li>Adventure</li>
+          <div className="movie-overlay">
+            <div className="overlay-content">
+              <CircularRating rating={movie.vote_average.toFixed(1)} />
+              <span className="movie-title">{movie.title || movie.name}</span>
+              <span className="movie-date">
+                {dayjs(movie.release_date || movie.first_air_date).format(
+                  "MMM D, YYYY"
                 )}
-              </ul>
+              </span>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }

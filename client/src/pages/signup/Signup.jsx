@@ -6,7 +6,7 @@ import { signUpSchema } from "../../utils/authSchemas/authSchema"
 import flixxitLogo from "../../assets/flixxitLogo.png"
 import toast from "react-hot-toast"
 import Footer from "../../components/common/footer/Footer"
-import LoadingSVG from "../../components/AnimatedSVGs/LoadingSVG"
+import LoadingSVG from "../../components/loadingSVGs/LoadingSVG"
 import { PersonAddOutlined } from "@mui/icons-material"
 import "./signup.scss"
 
@@ -28,7 +28,14 @@ const Signup = () => {
       setTimeout(() => {
         setIsLoading(false)
         navigate("/signin")
-        toast.success("Sign up Successful!")
+        toast("Sign up Successful!", {
+          icon: "✅",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        })
       }, 1000)
     } catch (error) {
       setTimeout(() => {

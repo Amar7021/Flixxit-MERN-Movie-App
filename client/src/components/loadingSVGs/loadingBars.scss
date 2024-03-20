@@ -1,0 +1,12 @@
+.loadingSpinner {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.initial {
+    height: 700px;
+  }
+}

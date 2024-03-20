@@ -1,5 +1,4 @@
-import React from "react";
-import "./footer.scss";
+import "./footer.scss"
 
 const Footer = () => {
   return (
@@ -73,13 +72,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerEnd">
-        <select name="language" id="language">
+        <select
+          name="language"
+          id="language"
+        >
           <option value="english">English</option>
         </select>
         <p>&copy;{new Date().getFullYear()} Flixxit, Inc.</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

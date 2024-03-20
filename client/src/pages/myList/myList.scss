@@ -6,80 +6,67 @@
   align-items: center;
   flex-direction: column;
   background-color: #141414;
+  overflow: hidden;
+  color: #fff;
 
-  .myListcontainer {
-    width: 90vw;
-    .favContainer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      justify-content: space-between;
-      margin: 100px 0;
+  .favContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 100px 0 25px;
 
-      h2 {
-        color: white;
+    h2 {
+      color: white;
 
-        @include mobile {
-          font-size: 20px;
-        }
-
-        @include xSmall {
-          font-size: 20px;
-        }
+      @include mobile {
+        font-size: 20px;
       }
 
-      .heartIcon {
-        text-align: center;
-        padding-top: 6px;
-        color: red;
-      }
-
-      .clearBtn {
-        margin-left: 50px;
-        width: 80px;
-        padding: 5px;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        background-color: white;
-        color: black;
-        font-size: 14px;
-        cursor: pointer;
-        text-transform: capitalize;
-        font-weight: 600;
-
-        @include mobile {
-          width: 60px;
-          padding: 4px;
-          margin-left: 10px;
-          font-size: 12px;
-        }
-
-        &:hover {
-          opacity: 0.8;
-        }
+      @include xSmall {
+        font-size: 20px;
       }
     }
 
-    .subHeading {
-      color: white;
+    .heartIcon {
       text-align: center;
-      margin: 80px 20px;
+      padding-top: 6px;
+      color: red;
+    }
+
+    .clear-btn {
+      width: 80px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: white;
+      padding: 8px;
+      cursor: pointer;
 
       &:hover {
-        text-decoration: underline;
+        opacity: 0.8;
       }
     }
   }
 
-  .favlistItem {
+  .subHeading {
+    color: white;
+    text-align: center;
+    margin: 80px 20px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .favLists {
     display: flex;
     flex-wrap: wrap;
-
-    @include tablet {
-      justify-content: center;
-    }
+    margin-bottom: 30px;
 
     @include mobile {
       justify-content: center;
@@ -87,6 +74,40 @@
 
     @include xSmall {
       justify-content: center;
+    }
+
+    .list-item {
+      margin-bottom: 40px;
+
+      .remove-fav-btn {
+        width: 195px;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #fff;
+        background-color: red;
+        transition: opacity 0.3s ease-in;
+
+        @include tablet {
+          width: 167px;
+        }
+
+        @include mobile {
+          width: 125px;
+        }
+
+        @include xSmall {
+          width: 125px;
+        }
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,153 @@
+@import "../../app.scss";
+
+.movie-card-items {
+  display: flex;
+  gap: 10px;
+  overflow-y: hidden;
+
+  .card-item {
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    margin-right: 25px;
+
+    @include tablet {
+      margin-right: 15px;
+    }
+
+    @include mobile {
+      margin-right: 15px;
+    }
+
+    @include xSmall {
+      margin-right: 15px;
+    }
+
+    .movie-poster {
+      position: relative;
+      width: 195px;
+      height: 291px;
+      aspect-ratio: 1 / 1.5;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      @include tablet {
+        width: 167px;
+        height: 250px;
+      }
+
+      @include mobile {
+        width: 125px;
+        height: 190px;
+      }
+
+      @include xSmall {
+        width: 125px;
+        height: 190px;
+      }
+
+      .lazy-load-image-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .circularRating {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: 15px;
+        left: 10px;
+        background-color: white;
+        flex-shrink: 0;
+
+        .CircularProgressbar-text {
+          fill: black;
+        }
+      }
+    }
+
+    &:hover .movie-overlay {
+      bottom: -1px;
+    }
+
+    .movie-overlay {
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 0%, black);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: bottom 0.4s ease;
+
+      .overlay-content {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+
+        .movie-title {
+          margin-top: 5px;
+          font-size: 16px;
+          line-height: 1.5;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          color: #fff;
+
+          @include tablet {
+            font-size: 14px;
+          }
+
+          @include mobile {
+            font-size: 14px;
+          }
+
+          @include xSmall {
+            font-size: 14px;
+          }
+        }
+
+        .movie-date {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+
+          @include tablet {
+            font-size: 12px;
+          }
+
+          @include mobile {
+            font-size: 12px;
+          }
+
+          @include xSmall {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

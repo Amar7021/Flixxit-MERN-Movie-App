@@ -1,0 +1,179 @@
+@import "../../../app.scss";
+
+.featured-info {
+  width: 35%;
+  position: absolute;
+  left: 100px;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include tablet {
+    left: 60px;
+    width: 55%;
+  }
+
+  @include mobile {
+    top: 5%;
+    width: 60%;
+    left: 20px;
+  }
+
+  @include xSmall {
+    top: 5%;
+    width: 60%;
+    left: 20px;
+  }
+
+  .movie-title {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    @include tablet {
+      font-size: 32px;
+    }
+
+    @include mobile {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    @include xSmall {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .circularRating {
+    width: 60px;
+  }
+
+  .movie-desc {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    @include tablet {
+      font-size: 16px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    @include xSmall {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .play-btn {
+      width: max-content;
+      height: 35px;
+      border: none;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      gap: 5px;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      transition: 0.3s ease;
+
+      @include mobile {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: 500;
+        height: 28px;
+      }
+
+      @include xSmall {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: 500;
+        height: 28px;
+      }
+
+      &:hover {
+        background-color: red;
+        color: white;
+      }
+
+      .btn-icon {
+        font-size: 22px;
+
+        @include mobile {
+          font-size: 16px;
+        }
+
+        @include xSmall {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .more-info-btn {
+      width: max-content;
+      height: 35px;
+      border: none;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      gap: 5px;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      transition: 0.3s ease;
+
+      @include mobile {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: 500;
+        height: 28px;
+      }
+
+      @include xSmall {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: 500;
+        height: 28px;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.678);
+        color: var(--main-color);
+      }
+
+      .btn-icon {
+        font-size: 22px;
+
+        @include mobile {
+          font-size: 16px;
+        }
+
+        @include xSmall {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../app.scss";
+
+.carousel {
+  margin: 25px 0 30px;
+
+  .content-wrapper {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .no-info {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .slick-slider {
+    width: 100%;
+  }
+
+  .slick-list {
+    position: relative;
+    display: block !important;
+
+    @include mobile {
+      overflow: visible;
+    }
+
+    @include xSmall {
+      overflow: visible;
+    }
+  }
+
+  .slick-slide div {
+    margin-right: 5px;
+
+    @include tablet {
+      margin-right: 0;
+    }
+
+    @include mobile {
+      margin-right: 0;
+    }
+
+    @include xSmall {
+      margin-right: 0;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    z-index: 99;
+  }
+
+  .slick-prev {
+    left: -38px !important;
+    color: white;
+    font-size: 1.5rem;
+    transition: scale 0.3s ease-in;
+
+    &:hover {
+      scale: 1.3;
+    }
+  }
+
+  .slick-next {
+    color: white;
+    font-size: 1.5rem;
+    transition: scale 0.3s ease-in;
+
+    &:hover {
+      scale: 1.3;
+    }
+  }
+}

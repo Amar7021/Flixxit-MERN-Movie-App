@@ -1,0 +1,87 @@
+.toggle-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #757575;
+  position: relative;
+
+  &:hover {
+    border: 2px solid white;
+
+    .addtoList {
+      display: flex;
+    }
+
+    .removeFromList {
+      display: flex;
+    }
+  }
+
+  .addIcon,
+  .removeIcon {
+    font-size: 24px;
+    color: white;
+  }
+
+  .removeFromList,
+  .addtoList {
+    display: none;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: 45px;
+    transition: all 0.4s ease;
+  }
+
+  .add {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .addtoList {
+      width: max-content;
+      right: -10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        right: 15px;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .remove {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .removeFromList {
+      width: max-content;
+      right: -10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        right: 15px;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

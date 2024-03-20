@@ -1,0 +1,26 @@
+@import "../../../app.scss";
+
+.cast-sk {
+  display: flex;
+  gap: 10px;
+  width: 90vw;
+  overflow: hidden;
+
+  .sk-cast-card {
+    .character-sk {
+      width: 138px;
+      height: 175px;
+      border-radius: 10px;
+
+      @include mobile {
+        width: 100px;
+        height: 125px;
+      }
+
+      @include xSmall {
+        width: 100px;
+        height: 125px;
+      }
+    }
+  }
+}

@@ -1,35 +1,35 @@
-import Navbar from "../../components/common/navbar/Navbar";
-import Featured from "../../components/featured/Featured";
-import Slider from "../../components/slider/Slider";
-import { useEffect } from "react";
-import Footer from "../../components/common/footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, getGenres } from "../../redux/features/moviesSlice";
-import "./home.scss";
+import Navbar from "../../components/common/navbar/Navbar"
+import Featured from "../../components/featured/Featured"
+import Footer from "../../components/common/footer/Footer"
+import useFetch from "../../components/hooks/useFetch"
+import Trending from "./trending/Trending"
+import Popular from "./popular/Popular"
+import TopRated from "./topRated/TopRated"
+import Discover from "./discover/Discover"
+import ColumnWrapper from "../../components/columnWrapper/ColumnWrapper"
+import "./home.scss"
 
 const Home = () => {
-  const genresLoaded = useSelector(state => state.movies.genresLoaded);
-  const movies = useSelector(state => state.movies.movies);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getGenres());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (genresLoaded) dispatch(fetchMovies({ type: "all" }));
-  }, [genresLoaded, dispatch]);
+  const { loading, data } = useFetch(`/trending/all/week`)
 
   return (
     <>
       <div className="home">
         <Navbar />
-        <Featured />
-        <Slider movies={movies} />
+        <Featured
+          data={data}
+          loading={loading}
+        />
+        <ColumnWrapper>
+          <Trending />
+          <Popular />
+          <TopRated />
+          <Discover />
+        </ColumnWrapper>
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

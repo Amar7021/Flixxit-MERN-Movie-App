@@ -1,0 +1,50 @@
+@import "../../../app.scss";
+
+.sk-movie-card {
+  display: flex;
+  gap: 15px;
+  width: 85vw;
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  @include tablet {
+    gap: 5px;
+  }
+
+  @include mobile {
+    gap: 5px;
+  }
+
+  @include xSmall {
+    gap: 5px;
+  }
+
+  .sk-card-wrapper {
+    .sk-movie {
+      width: 198px;
+      height: 297px;
+      border-radius: 10px;
+      margin-right: 10px;
+      margin-bottom: 15px;
+
+      @include tablet {
+        width: 155px;
+        height: 232px;
+        max-width: 205px;
+        max-height: 310px;
+      }
+
+      @include mobile {
+        width: 139px;
+        height: 208px;
+        max-width: 228px;
+        max-height: 342px;
+      }
+
+      @include xSmall {
+        width: 114px;
+        height: 171px;
+      }
+    }
+  }
+}

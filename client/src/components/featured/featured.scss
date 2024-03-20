@@ -2,133 +2,143 @@
 
 .featured {
   height: 76vh;
+  width: 95%;
+  background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #141414 79.17%);
   position: relative;
-  object-fit: contain;
+  margin: 65px auto 40px;
 
   @include tablet {
     height: 70vh;
+    background-position: center;
   }
 
   @include mobile {
-    height: 45vh;
+    height: 48vh;
+    background-position: center;
   }
 
   @include xSmall {
-    height: 45vh;
+    height: 55vh;
+    background-position: center;
   }
 
-  .info {
-    width: 35%;
-    position: absolute;
-    left: 50px;
-    top: 40%;
+  .loadingSVG {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slick-slider {
+    width: 100%;
+
+    .slick-list {
+      overflow: visible;
+      position: relative;
+      display: block !important;
+    }
+
+    .slick-slide div {
+      padding: 0 8px;
+      border-radius: 15px;
+    }
+
+    .slick-prev {
+      left: -25px;
+      z-index: 99;
+      color: white;
+      transition: scale 0.2s ease-in-out;
+
+      @include tablet {
+        left: -5px;
+      }
+
+      &:hover {
+        scale: 1.2;
+      }
+    }
+
+    .slick-next {
+      right: -25px;
+      z-index: 99;
+      color: white;
+      transition: scale 0.2s ease-in-out;
+
+      &:hover {
+        scale: 1.2;
+      }
+
+      @include tablet {
+        right: -8px;
+      }
+    }
+
+    .slick-dots li {
+      @include mobile {
+        margin: 0;
+      }
+
+      @include xSmall {
+        margin: 0;
+      }
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: white;
+    }
+
+    .slick-dots li button:before {
+      font-size: 8px;
+      color: hsla(0, 0%, 100%, 0.5);
+    }
+  }
+
+  .featuredContainer {
+    height: 76vh;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #141414 79.17%);
 
     @include tablet {
-      top: 40%;
-      width: 55%;
+      height: 70vh;
     }
 
     @include mobile {
-      top: 25%;
-      width: 55%;
+      height: 48vh;
     }
 
     @include xSmall {
-      top: 25%;
-      width: 55%;
+      height: 55vh;
     }
 
-    .movieTitle {
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    .featuredWrapper {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      background-size: cover;
+      background-position: auto;
+      background-repeat: no-repeat;
 
       @include tablet {
-        font-size: 32px;
+        background-position: center;
       }
 
       @include mobile {
-        font-size: 20px;
+        background-position: center;
       }
 
       @include xSmall {
-        font-size: 18px;
+        background-position: center;
       }
     }
+  }
 
-    .movieDesc {
-      font-size: 16px;
-      letter-spacing: 1px;
-
-      @include tablet {
-        font-size: 14px;
-      }
-
-      @include mobile {
-        font-size: 12px;
-      }
-
-      @include xSmall {
-        font-size: 12px;
-      }
-    }
-
-    .buttons {
-      display: flex;
-
-      .play {
-        width: 100px;
-        height: 35px;
-        border: none;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-right: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        gap: 5px;
-        cursor: pointer;
-        background-color: rgba(185, 185, 185, 0.5);
-        color: #fff;
-        transition: 0.3s ease;
-
-        @include tablet {
-          width: 90px;
-
-          font-size: 14px;
-        }
-
-        @include mobile {
-          width: 80px;
-          font-size: 14px;
-        }
-
-        @include xSmall {
-          width: 80px;
-          font-size: 14px;
-        }
-
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.678);
-          color: var(--main-color);
-        }
-      }
-
-      .playIcon {
-        font-size: 28px;
-
-        @include mobile {
-          font-size: 24px;
-        }
-
-        @include xSmall {
-          font-size: 20px;
-        }
-      }
-    }
+  .gradient-bottom {
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #141414 80%);
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 }
