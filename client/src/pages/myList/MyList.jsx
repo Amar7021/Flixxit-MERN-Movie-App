@@ -11,7 +11,7 @@ import ClearListModal from "../../components/modal/clearListModal/ClearListModal
 import ColumnWrapper from "../../components/columnWrapper/ColumnWrapper"
 import axios from "../../services/helper"
 import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./myList.scss"
 
 const MyList = () => {
@@ -19,7 +19,6 @@ const MyList = () => {
   const { currentUser } = useSelector((state) => state.user)
   const { movies, loading } = useSelector((state) => state.myLists)
   const [isOpen, setIsOpen] = useState(false)
-  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchMyList(currentUser.email))
@@ -95,11 +94,10 @@ const MyList = () => {
                 <div
                   className="list-item"
                   key={movie?.id}
-                  onClick={() =>
-                    navigate(`/detail/${movie?.media_type}/${movie?.id}`)
-                  }
                 >
-                  <MovieCard movie={movie} />
+                  <Link to={`/detail/${movie?.media_type}/${movie?.id}`}>
+                    <MovieCard movie={movie} />
+                  </Link>
                   <button
                     className="remove-fav-btn"
                     onClick={() => handleRemoveFromList(movie)}
