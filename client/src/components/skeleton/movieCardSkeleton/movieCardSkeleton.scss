@@ -13,10 +13,12 @@
 
   @include mobile {
     gap: 5px;
+    overflow: visible;
   }
 
   @include xSmall {
     gap: 5px;
+    overflow: visible;
   }
 
   .sk-card-wrapper {
@@ -37,8 +39,8 @@
       @include mobile {
         width: 139px;
         height: 208px;
-        max-width: 228px;
-        max-height: 342px;
+        max-width: 225px;
+        max-height: 335px;
       }
 
       @include xSmall {

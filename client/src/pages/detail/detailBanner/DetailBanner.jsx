@@ -17,6 +17,8 @@ const DetailBanner = ({ video, crew }) => {
   const [videoId, setVideoId] = useState(null)
   const { data, loading } = useFetch(`/${type}/${id}`)
 
+  const movieData = data ? { ...data, media_type: type } : null
+
   const director = crew?.filter((p) => p.job === "Director")
 
   const writer = crew?.filter(
@@ -108,17 +110,17 @@ const DetailBanner = ({ video, crew }) => {
                   <span className="play-title">Play Trailer</span>
                 </div>
                 <span className="favourite-toggle">
-                  <FavouriteAction movie={data} />
+                  <FavouriteAction movie={movieData} />
                 </span>
               </div>
               <h3 className="movie-tagline">{data?.tagline}</h3>
               <div className="overview-info">
-                {data?.overview ? (
+                {data?.overview && (
                   <>
                     <h3 className="overview-heading">Overview</h3>
                     <p className="overview-desc">{data?.overview}</p>
                   </>
-                ) : null}
+                )}
               </div>
               <div className="movie-info">
                 <div className="info-box">

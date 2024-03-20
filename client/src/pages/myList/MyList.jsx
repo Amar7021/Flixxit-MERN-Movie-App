@@ -5,12 +5,13 @@ import MovieCard from "../../components/movieCard/MovieCard"
 import Footer from "../../components/common/footer/Footer"
 import { useEffect, useState } from "react"
 import { fetchMyList } from "../../redux/features/myListSlice"
-import MovieCardSkeleton from "../../components/skeleton/movieCardSkeleton/MovieCardSkeleton"
 import { createPortal } from "react-dom"
+import FavCardSkeleton from "../../components/skeleton/favCardSkeleton/FavCardSkeleton"
 import ClearListModal from "../../components/modal/clearListModal/ClearListModal"
 import ColumnWrapper from "../../components/columnWrapper/ColumnWrapper"
 import axios from "../../services/helper"
 import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 import "./myList.scss"
 
 const MyList = () => {
@@ -18,6 +19,7 @@ const MyList = () => {
   const { currentUser } = useSelector((state) => state.user)
   const { movies, loading } = useSelector((state) => state.myLists)
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchMyList(currentUser.email))
@@ -80,17 +82,22 @@ const MyList = () => {
             )}
           </div>
           {loading ? (
-            <MovieCardSkeleton cards={4} />
+            <FavCardSkeleton cards={movies?.length} />
           ) : movies?.length === 0 ? (
-            <h2 className="subHeading">
-              Add Something In Your List To Watch Later.
-            </h2>
+            <div className="watchLater">
+              <h2 className="laterTitle">
+                Add Something In Your List To Watch Later.
+              </h2>
+            </div>
           ) : (
             <div className="favLists">
               {movies?.map((movie) => (
                 <div
                   className="list-item"
                   key={movie?.id}
+                  onClick={() =>
+                    navigate(`/detail/${movie?.media_type}/${movie?.id}`)
+                  }
                 >
                   <MovieCard movie={movie} />
                   <button

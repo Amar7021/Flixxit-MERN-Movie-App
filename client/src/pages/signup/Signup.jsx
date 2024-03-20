@@ -25,23 +25,19 @@ const Signup = () => {
         username,
         password,
       })
-      setTimeout(() => {
-        setIsLoading(false)
-        navigate("/signin")
-        toast("Sign up Successful!", {
-          icon: "✅",
-          style: {
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
-          },
-        })
-      }, 1000)
+      setIsLoading(false)
+      navigate("/signin")
+      toast("Sign up Successful!", {
+        icon: "✅",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      })
     } catch (error) {
-      setTimeout(() => {
-        setIsLoading(false)
-        setIsError(error.response?.data?.Error)
-      }, 1000)
+      setIsLoading(false)
+      setIsError(error.response?.data?.Error)
     }
   }
 

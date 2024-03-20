@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
     const newUser = new User({ username, email, password: hashedPassword })
     await newUser.save()
 
-    res.status(201).json({ Message: "User created successfully!" })
+    return res.status(201).json({ Message: "User created successfully!" })
   } catch (error) {
     return res.status(500).json(error.message)
   }
@@ -60,7 +60,7 @@ const loginUser = async (req, res) => {
 
     const { password: userPassword, ...others } = user._doc
 
-    res
+    return res
       .cookie("access_token", token, {
         httpOnly: true,
         maxAge: 86400000,

@@ -27,23 +27,19 @@ const Signin = () => {
     dispatch(authStarted())
     try {
       const response = await axios.post("/auth/login", values)
-      setTimeout(() => {
-        dispatch(authSuccessful(response.data))
-        navigate("/")
-        toast("Signin Successful!", {
-          icon: "✅",
-          style: {
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
-          },
-        })
-      }, 1000)
+      dispatch(authSuccessful(response.data))
+      navigate("/")
+      toast("Signin Successful!", {
+        icon: "✅",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      })
     } catch (error) {
-      setTimeout(() => {
-        setIsError(error.response?.data?.Error)
-        dispatch(authFailed(error.message))
-      }, 1000)
+      setIsError(error.response?.data?.Error)
+      dispatch(authFailed(error.message))
     }
   }
 
