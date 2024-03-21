@@ -107,14 +107,17 @@ const Navbar = () => {
             <div className="profile">
               <ArrowDropDown className="icon dropdownIcon" />
               <div className="options">
-                <span>
+                <span className="option-link">
                   <Settings className="profileIcon" />
                   Settings
                 </span>
-                <span onClick={handleLogout}>
+                <button
+                  onClick={handleLogout}
+                  className="signout-btn"
+                >
                   <Logout className="profileIcon" />
                   Sign out of Flixxit
-                </span>
+                </button>
               </div>
             </div>
             <Sidebar

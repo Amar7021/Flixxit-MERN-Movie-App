@@ -149,6 +149,7 @@
           background-color: #333;
           border-radius: 5px;
           width: 180px;
+          padding: 10px;
 
           &::before {
             content: "";
@@ -162,14 +163,28 @@
           }
         }
 
-        span {
-          padding: 10px;
+        .signout-btn {
+          background-color: transparent;
+          color: #aaa;
+          font-size: 16px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          margin-right: 8px;
+
+          &:hover {
+            color: #fff;
+            text-decoration: underline;
+          }
+        }
+
+        .option-link {
           cursor: pointer;
           transition: 0.3s ease;
           color: #aaa;
 
           &:hover {
-            color: white;
+            color: #fff;
             text-decoration: underline;
           }
         }
@@ -184,9 +199,10 @@
           .options {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             position: absolute;
             right: 50px;
-            top: 45px;
+            gap: 10px;
           }
         }
       }
@@ -204,6 +220,10 @@
         }
 
         @include mobile {
+          display: none;
+        }
+
+        @include xSmall {
           display: none;
         }
       }

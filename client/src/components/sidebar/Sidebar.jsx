@@ -120,13 +120,13 @@ const Sidebar = ({ onClose, currentUser, handleLogout, openMenu }) => {
           </span>
         </li>
         <hr className="horizontal-line" />
-        <li
-          className="signout-item"
+        <button
+          className="signout-btn"
           onClick={handleLogout}
         >
           <Logout />
           <span>Sign out</span>
-        </li>
+        </button>
         <Close
           className="menu-close"
           onClick={onClose}
