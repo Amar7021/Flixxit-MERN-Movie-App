@@ -16,12 +16,14 @@
     gap: 5px;
     align-items: center;
     justify-content: center;
+    padding-right: 25px;
   }
 
   @include xSmall {
     gap: 5px;
     align-items: center;
     justify-content: center;
+    padding-right: 25px;
   }
 
   .sk-card-wrapper {
@@ -52,6 +54,7 @@
       padding: 10px;
       width: 198px;
       border-radius: 10px;
+      margin-bottom: 40px;
 
       @include tablet {
         width: 167px;
