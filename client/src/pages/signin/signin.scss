@@ -1,161 +1,161 @@
 .signin {
-  width: 100%;
-  min-height: 100vh;
-  background: url("https://www.plex.tv/wp-content/uploads/2024/01/Watch-Free-Hero-2048x1152-3-1536x864.png");
-  background-size: cover;
-  color: white;
-  position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../assets/banner-image.png");
+	background-size: cover;
+	color: white;
+	position: relative;
 
-  .top {
-    .top_wrapper {
-      padding: 25px 55px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+	.top {
+		.top_wrapper {
+			padding: 25px 55px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-      .logo {
-        height: 30px;
-      }
-    }
-  }
+			.logo {
+				height: 30px;
+			}
+		}
+	}
 
-  .container {
-    width: 40%;
-    height: 90%;
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+	.container {
+		width: 40%;
+		height: 90%;
+		margin: 40px auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
 
-    .auth_form {
-      width: 350px;
-      height: 550px;
-      padding: 30px;
-      border-radius: 5px;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
+		.auth_form {
+			width: 350px;
+			height: 550px;
+			padding: 30px;
+			border-radius: 5px;
+			background-color: rgba(0, 0, 0, 0.8);
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
 
-      .email_input {
-        position: relative;
-      }
+			.email_input {
+				position: relative;
+			}
 
-      input {
-        height: 50px;
-        min-width: 290px;
-        text-indent: 10px;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        background-color: #333;
-        color: white;
-        padding-left: 10px;
-        font-size: 16px;
+			input {
+				height: 50px;
+				min-width: 290px;
+				text-indent: 10px;
+				border: none;
+				outline: none;
+				border-radius: 5px;
+				background-color: #333;
+				color: white;
+				padding-left: 10px;
+				font-size: 16px;
 
-        &::placeholder {
-          color: #8c8c8c;
-        }
-      }
+				&::placeholder {
+					color: #8c8c8c;
+				}
+			}
 
-      .input_error {
-        border: 2px solid red !important;
-      }
+			.input_error {
+				border: 2px solid red !important;
+			}
 
-      .password_error,
-      .email_error {
-        position: absolute;
-        bottom: -20px;
+			.password_error,
+			.email_error {
+				position: absolute;
+				bottom: -20px;
 
-        .error {
-          text-indent: 10px;
-          color: red;
-          font-size: 14px;
-        }
-      }
+				.error {
+					text-indent: 10px;
+					color: red;
+					font-size: 14px;
+				}
+			}
 
-      .password_input {
-        position: relative;
+			.password_input {
+				position: relative;
 
-        .toggle_password {
-          position: absolute;
-          top: 30%;
-          right: 15px;
-          cursor: pointer;
-          font-size: 14px;
-          color: #fff;
-        }
-      }
+				.toggle_password {
+					position: absolute;
+					top: 30%;
+					right: 15px;
+					cursor: pointer;
+					font-size: 14px;
+					color: #fff;
+				}
+			}
 
-      .api_error {
-        color: red;
-        font-size: 14px;
-        margin-top: -25px;
-        text-align: center;
-      }
+			.api_error {
+				color: red;
+				font-size: 14px;
+				margin-top: -25px;
+				text-align: center;
+			}
 
-      .login_button {
-        height: 50px;
-        width: 290px;
-        border-radius: 5px;
-        background-color: red;
-        color: white;
-        border: none;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
-        outline: none;
+			.login_button {
+				height: 50px;
+				width: 290px;
+				border-radius: 5px;
+				background-color: red;
+				color: white;
+				border: none;
+				font-size: 18px;
+				font-weight: 500;
+				cursor: pointer;
+				outline: none;
 
-        &:hover {
-          opacity: 0.8;
-        }
+				&:hover {
+					opacity: 0.8;
+				}
 
-        &:disabled {
-          filter: contrast(0.8);
-        }
+				&:disabled {
+					filter: contrast(0.8);
+				}
 
-        .loading_btn {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
+				.loading_btn {
+					display: flex;
+					justify-content: center;
+					gap: 10px;
 
-          .sign_in {
-            font-size: 16px;
-            color: #fff;
-          }
-        }
-      }
+					.sign_in {
+						font-size: 16px;
+						color: #fff;
+					}
+				}
+			}
 
-      .newTxtFlixxit {
-        color: #737373;
-        margin: 30px 0;
+			.newTxtFlixxit {
+				color: #737373;
+				margin: 30px 0;
 
-        .signup_link {
-          color: white;
-          text-decoration: none;
-          cursor: pointer;
+				.signup_link {
+					color: white;
+					text-decoration: none;
+					cursor: pointer;
 
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
 
-      small {
-        color: #737373;
-        margin-top: -25px;
+			small {
+				color: #737373;
+				margin-top: -25px;
 
-        a {
-          color: #005fc7;
-          text-decoration: none;
+				a {
+					color: #005fc7;
+					text-decoration: none;
 
-          &:hover {
-            text-decoration: underline;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
+					&:hover {
+						text-decoration: underline;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
 }
